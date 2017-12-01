@@ -19,7 +19,7 @@ class Dataset:
         """Creates a list of image paths and labels"""
         dir_names = os.listdir(self.data_dir)
         dir_names.sort()
-        num_classes = len(dir_names)
+        self.num_classes = len(dir_names)
         
         for index,dir_name in enumerate(dir_names):
             
@@ -39,8 +39,8 @@ class Dataset:
                 self.image_paths.append(image_path)
                 
                 # Add image label array
-                label_array = np.zeros((1,num_classes))
-                label_array[0,label] = 1
+                label_array = np.zeros((1,1,self.num_classes))
+                label_array[0,0,label] = 1
                 self.labels.append(label_array)
                 # print "loaded {}".format(image_name)
                 
