@@ -2,7 +2,6 @@ import os
 import cv2
 import numpy as np
 import json
-from operator import itemgetter
 
 class Dataset:
     def __init__(self,data_dir,height,width):
@@ -94,7 +93,7 @@ def main():
     names = data.names
     
     images, labels = data.next_batch(50)
-    
+
     for image,label in zip(images,labels):
         name = names[np.argmax(label)]
         print("{} \t {}".format(name,label))
