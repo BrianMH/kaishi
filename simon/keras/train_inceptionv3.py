@@ -14,16 +14,17 @@ import os
 import cv2
 import random
 import matplotlib
+from datetime import datetime                   # Use to record time
 import json                                     # Writing data to logger
 matplotlib.use('Agg')                           # Stops from plotting to screen
 import matplotlib.pyplot as plt
 from dataset import Dataset                     # Custom Dataset
 
-DATASET_NAME = 'caltech'
+DATASET_NAME = 'plankton'
 IMAGE_WIDTH,IMAGE_HEIGHT,NUM_CHANNELS = 299,299,3
-EPOCHS = 1
+EPOCHS = 10
 BATCH_SIZE = 50
-NUM_TRAIN,NUM_VAL,NUM_TEST = 60,5,35
+NUM_TRAIN,NUM_VAL,NUM_TEST = 10,5,85
 
 ID = "{}_{}_{}_{}_{}_{}".format(DATASET_NAME,
                                 EPOCHS,BATCH_SIZE,NUM_TRAIN,NUM_VAL,NUM_TEST)
@@ -89,9 +90,22 @@ def main():
     # Load the validation data
     X_val, Y_val = cal.load_validation()
     
+    # Start time
+    start_time = datetime.now()
+    print('Start Time', start_time)
+    
     # Train model and store stats in history
     history = model.fit(x=X_train,y=Y_train,batch_size=BATCH_SIZE,
                         epochs=EPOCHS,validation_data=(X_val,Y_val))
+    
+    # End time
+    stop_time = datetime.now()
+    print('Stop Time', stop_time)
+    
+    # Print total time
+    elapsed_time = stop_time - start_time
+    print('My Elapsed Time', elapsed_time)
+    logger(elapsed_time)   
 
     # Append the accuracy and loss scores
     train_acc = np.append(train_acc, history.history['acc'])
