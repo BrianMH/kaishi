@@ -26,6 +26,7 @@ EPOCHS = 10
 BATCH_SIZE = 50
 NUM_TRAIN,NUM_VAL,NUM_TEST = 10,5,85
 
+
 ID = "{}_{}_{}_{}_{}_{}_{}".format("De256",DATASET_NAME,
                                 EPOCHS,BATCH_SIZE,NUM_TRAIN,NUM_VAL,NUM_TEST)
 
@@ -49,7 +50,10 @@ def load_model():
     x = Flatten()(base_out)
     x = Dense(256,activation='relu')(x)
     x = Dropout(0.5)(x)
+<<<<<<< HEAD
     x = Dense(256,activation='softmax')(x) # New# New
+=======
+>>>>>>> fd4ddf68c7d6aaa395e36a3763e902c982ea79ba
 
     # Final fully connected layer to work with our data
     predictions = Dense(num_classes,activation='softmax')(x)
