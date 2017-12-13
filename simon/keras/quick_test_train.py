@@ -27,7 +27,7 @@ import cv2
 # Import custom dataset class
 from dataset import Dataset                     
 
-DATASET_NAME = 'plankton'
+DATASET_NAME = 'plankton_resized'
 EPOCHS = 1
 BATCH_SIZE = 50
 NUM_TRAIN,NUM_VAL,NUM_TEST = 1,1,1
@@ -35,12 +35,12 @@ NUM_TRAIN,NUM_VAL,NUM_TEST = 1,1,1
 IMAGE_WIDTH,IMAGE_HEIGHT,NUM_CHANNELS = 299,299,3
 
 
-ID = "{}_{}_{}_{}_{}_{}_{}".format("normal",DATASET_NAME,
+ID = "{}_{}_{}_{}_{}_{}_{}".format("normal_resized",DATASET_NAME,
                                 EPOCHS,BATCH_SIZE,NUM_TRAIN,NUM_VAL,NUM_TEST)
 
 
 # Load dataset
-cal = Dataset(DATASET_NAME,IMAGE_HEIGHT,IMAGE_WIDTH)
+cal = Dataset(DATASET_NAME,IMAGE_HEIGHT,IMAGE_WIDTH,resized=True)
 cal.read_data()
 cal.train_val_test_split(NUM_TRAIN,NUM_VAL,NUM_TEST)
 num_classes = cal.num_classes
