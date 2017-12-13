@@ -107,11 +107,27 @@ def main():
     model = load_model()
     print("Model created")
 
+    # Start time
+    start_time = datetime.now()
+
     # Load the training data
     X_train, Y_train = cal.load_training()
     
+    # Print time loading training
+    elapsed_time = datetime.now() - start_time
+    logger("Elapsed Time: Loading training")
+    logger(elapsed_time)   
+    
+    # Start time
+    start_time = datetime.now()
+    
     # Load the validation data
     X_val, Y_val = cal.load_validation()
+    
+    # Print time loading validation
+    elapsed_time = datetime.now() - start_time
+    logger("Elapsed Time: Loading validation")
+    logger(elapsed_time)  
     
     # Start time
     start_time = datetime.now()
@@ -122,12 +138,9 @@ def main():
                         
     history = history.history
     
-    # End time
-    stop_time = datetime.now()
-    
     # Print total time
-    elapsed_time = stop_time - start_time
-    logger("Elapsed Time")
+    elapsed_time = datetime.now() - start_time
+    logger("Elapsed Time: Training")
     logger(elapsed_time)   
      
     # Save model weights
@@ -156,9 +169,27 @@ def main():
     plot(loss, "Loss: Training vs Validation",
             'Epochs', 'Loss', '{}_loss_train_val'.format(ID))
     
-    # Test the model
+    # Start time
+    start_time = datetime.now()
+    
+    # Loading testing data
     X_test, Y_test = cal.load_testing()
+    
+    # Print time loading testing
+    elapsed_time = datetime.now() - start_time
+    logger("Elapsed Time: Loading testing")
+    logger(elapsed_time)  
+    
+    # Start time
+    start_time = datetime.now()
+    
+    # Test model
     metrics = model.evaluate(x=X_test,y=Y_test, batch_size=BATCH_SIZE)
+    
+    # Print time testing
+    elapsed_time = datetime.now() - start_time
+    logger("Elapsed Time: Testing")
+    logger(elapsed_time)  
     
     logger(metrics)
     logger(model.metrics_names)
