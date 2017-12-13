@@ -35,7 +35,7 @@ NUM_TRAIN,NUM_VAL,NUM_TEST = 10,5,85
 IMAGE_WIDTH,IMAGE_HEIGHT,NUM_CHANNELS = 299,299,3
 
 
-ID = "{}_{}_{}_{}_{}_{}_{}".format("normal_resized_trial",DATASET_NAME,
+ID = "{}_{}_{}_{}_{}_{}_{}".format("5dense256relu",DATASET_NAME,
                                 EPOCHS,BATCH_SIZE,NUM_TRAIN,NUM_VAL,NUM_TEST)
 
 
@@ -79,6 +79,11 @@ def load_model():
     x = Flatten()(base_out)
     x = Dense(256,activation='relu')(x)
     x = Dropout(0.5)(x)
+    x = Dense(256,activation='relu')(x)
+    x = Dense(256,activation='relu')(x)
+    x = Dense(256,activation='relu')(x)
+    x = Dense(256,activation='relu')(x)
+    x = Dense(256,activation='relu')(x)
     
     # Final fully connected layer to work with our data
     predictions = Dense(num_classes,activation='softmax')(x)
@@ -98,7 +103,8 @@ def load_model():
 
 def main():
     
-    description = "Base Inception V3"
+    description = """Inception V3 with 5 extra Dense 256 layers with relu
+                    activation"""
     
     logger(ID)
     logger(description)
