@@ -28,9 +28,9 @@ import cv2
 from dataset import Dataset                     
 
 DATASET_NAME = 'plankton'
-EPOCHS = 100
+EPOCHS = 1
 BATCH_SIZE = 50
-NUM_TRAIN,NUM_VAL,NUM_TEST = 10,5,85
+NUM_TRAIN,NUM_VAL,NUM_TEST = 1,1,1
 
 IMAGE_WIDTH,IMAGE_HEIGHT,NUM_CHANNELS = 299,299,3
 
