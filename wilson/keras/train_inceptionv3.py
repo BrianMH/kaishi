@@ -1,6 +1,6 @@
 #!/env/bin/python
 """
-COGS 118B Project
+COGS 181 Project
 Author: Brian Henriquez, Simon Fong, Wilson Tran
 """
 
