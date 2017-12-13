@@ -139,7 +139,7 @@ def main():
     
     model.save(model_path)
 
-    logger(history.history)
+    logger(history)
     print("Model weights saved")
     
     accuracy = {'Training': history['acc'],
