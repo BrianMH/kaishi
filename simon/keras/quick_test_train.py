@@ -119,6 +119,8 @@ def main():
     # Train model and store stats in history
     history = model.fit(x=X_train,y=Y_train,batch_size=BATCH_SIZE,
                         epochs=EPOCHS,validation_data=(X_val,Y_val))
+                        
+    history = history.history
     
     # End time
     stop_time = datetime.now()
