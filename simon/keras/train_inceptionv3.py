@@ -12,7 +12,7 @@ from datetime import datetime                    # Use to record time
 from keras.models import Model
 from keras.applications.inception_v3 import InceptionV3
 from keras import optimizers
-from keras.layers import Dropout, Flatten, Dense
+from keras.layers import Dropout, Flatten, Dense, MaxPooling2D, Reshape
 from keras.utils.np_utils import to_categorical
 
 # Import matrix and plotting
@@ -35,7 +35,7 @@ NUM_TRAIN,NUM_VAL,NUM_TEST = 10,5,85
 IMAGE_WIDTH,IMAGE_HEIGHT,NUM_CHANNELS = 299,299,3
 
 
-ID = "{}_{}_{}_{}_{}_{}_{}".format("5dense256relu",DATASET_NAME,
+ID = "{}_{}_{}_{}_{}_{}_{}".format("normal_dense1024",DATASET_NAME,
                                 EPOCHS,BATCH_SIZE,NUM_TRAIN,NUM_VAL,NUM_TEST)
 
 
@@ -77,13 +77,8 @@ def load_model():
 
     # Add layers more layers
     x = Flatten()(base_out)
-    x = Dense(256,activation='relu')(x)
+    x = Dense(1024,activation='relu')(x)
     x = Dropout(0.5)(x)
-    x = Dense(256,activation='relu')(x)
-    x = Dense(256,activation='relu')(x)
-    x = Dense(256,activation='relu')(x)
-    x = Dense(256,activation='relu')(x)
-    x = Dense(256,activation='relu')(x)
     
     # Final fully connected layer to work with our data
     predictions = Dense(num_classes,activation='softmax')(x)
@@ -105,7 +100,7 @@ def main():
     
     description = """Inception V3 with 5 extra Dense 256 layers with relu
                     activation"""
-    
+    logger("-----------------------------------------------------------------")
     logger(ID)
     logger(description)
     
