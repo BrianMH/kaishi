@@ -111,3 +111,55 @@ Elapsed Time: Testing
 0:01:59.676941
 [2.8568813314913131, 0.55489625812547716]
 ['loss', 'acc']
+-----------------------------------------------------------------
+quickTest_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+quickTest_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+Elapsed Time: Loading training
+0:00:00.232933
+Elapsed Time: Loading validation
+0:00:00.232272
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+-----------------------------------------------------------------
+5dense256relu_plankton_resized_100_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+Elapsed Time: Loading training
+0:00:00.195610
+Elapsed Time: Loading validation
+0:00:00.195852
+-----------------------------------------------------------------
+normal_dense1024_plankton_resized_1_50_1_1_1
+Inception V3 with 5 extra Dense 256 layers with relu
+                    activation
+Elapsed Time: Loading training
+0:00:00.192349
+Elapsed Time: Loading validation
+0:00:00.194712
